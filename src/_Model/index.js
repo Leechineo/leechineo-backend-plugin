@@ -7,7 +7,7 @@ const model = (name) => axios.create({
 const Model = (modelName) => {
   const create = async (props) => {
     const result = await model(modelName).post('/', props)
-    return result
+    return result.data
   }
 
   const find = async (params = { filters: {}, sort: {}, showId: false }) => {
@@ -17,7 +17,7 @@ const Model = (modelName) => {
         sort: params.sort
       }
     })
-    return result
+    return result.data
   }
 
   const findById = async (id, params = { select: '' }) => {
@@ -27,20 +27,20 @@ const Model = (modelName) => {
         select: params.select
       }
     })
-    return result
+    return result.data
   }
 
   const findByIdAndUpdate = async (id, props) => {
     const result = await model(modelName).patch('/', props, {
       params: { id }
     })
-    return result
+    return result.data
   }
   const findByIdAndDelete = async (id) => {
     const result = await model(modelName).delete('/', {
       params: { id }
     })
-    return result
+    return result.data
   }
 
   const findOne = async (filters = {}) => {
@@ -49,7 +49,7 @@ const Model = (modelName) => {
         filters: JSON.stringify(filters)
       }
     })
-    return result
+    return result.data
   }
 
   const findOneAndUpdate = async (filters, props) => {
@@ -58,7 +58,7 @@ const Model = (modelName) => {
         filters: JSON.stringify(filters)
       }
     })
-    return result
+    return result.data
   }
   const findOneAndDelete = async (filters) => {
     const result = await model(modelName).delete('/', {
@@ -66,7 +66,7 @@ const Model = (modelName) => {
         filters: JSON.stringify(filters)
       }
     })
-    return result
+    return result.data
   }
 
   return {
