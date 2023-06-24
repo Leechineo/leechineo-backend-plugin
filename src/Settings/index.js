@@ -1,5 +1,5 @@
 const Model = require('../_Model')
 
-const Setting = Model('Setting')
+const Setting = (databasePassword) => Model('Setting', databasePassword)
 
 module.exports = Setting

@@ -57,8 +57,8 @@ async function generateVariantOptions (product) {
   }
 }
 
-const findProduct = () => async (id, user) => {
-  const product = await Model('Product').findOne({ id })
+const findProduct = (databasePassword) => async (id, user) => {
+  const product = await Model('Product', databasePassword).findOne({ id })
   if (!product) {
     return null
   }

@@ -1,6 +1,9 @@
 const Model = require('../_Model')
 const findCategoryById = require('./findCategoryById')
 
-const Category = Model('Category')
+const Category = (databasePassword) => ({
+  ...Model('Category', databasePassword),
+  findCategoryById: findCategoryById()
+})
 
-module.exports = { ...Category, findCategoryById: findCategoryById(Category) }
+module.exports = Category

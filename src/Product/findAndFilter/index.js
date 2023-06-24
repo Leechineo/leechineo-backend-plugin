@@ -2,7 +2,7 @@ const Category = require('../../Category')
 const Model = require('../../_Model')
 const getSubCategories = require('./getSubcategories')
 
-const findAndFilter = () => async ({
+const findAndFilter = (databasePassword) => async ({
   category, sortby = 'newst_first',
   // price = { min: 0, max: 0 },
   searchQuery = ''
@@ -45,7 +45,7 @@ const findAndFilter = () => async ({
   } else {
     sort.createdAt = 'desc'
   }
-  const results = await Model('Product').find({ filters, sort })
+  const results = await Model('Product', databasePassword).find({ filters, sort })
   return results
 }
 

@@ -1,6 +1,8 @@
-const findCategory = async (id, categories, categoryModel) => {
+const Model = require("../../_Model")
+
+const findCategory = async (id, categories, databasePassword) => {
   if (!categories?.length) {
-    categories = await categoryModel.find()
+    categories = await Model('Category', databasePassword).find()
   }
   for (const category of categories) {
     if (category.id === id) {
@@ -16,8 +18,8 @@ const findCategory = async (id, categories, categoryModel) => {
   return null
 }
 
-const findCategoryById = (categoryModel) => async function (id, categories) {
-  const category = await findCategory(id, categories, categoryModel)
+const findCategoryById = (databasePassword) => async function (id, categories) {
+  const category = await findCategory(id, categories, databasePassword)
   return category
 }
 

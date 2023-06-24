@@ -8,8 +8,11 @@ const msFileManager = axios.create({
   baseURL: process.env.MS_FILE_MANAGER_URL || 'http://localhost:5001'
 })
 
-const File = Model('File')
+const File = (databasePassword) => ({
+  ...Model('File', databasePassword),
+  upload: upload(msFileManager, databasePassword),
+  download,
+  reqFile
+})
 
-module.exports = {
-  ...File, upload: upload(msFileManager, File), download, reqFile
-}
+module.exports = File

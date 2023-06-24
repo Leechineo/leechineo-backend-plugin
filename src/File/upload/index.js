@@ -1,6 +1,7 @@
 const FormData = require('form-data')
+const Model = require('../../_Model')
 
-const upload = (msFileManager, File) => async function (file, path, convertImages) {
+const upload = (msFileManager, databasePassword) => async function (file, path, convertImages) {
   const formData = new FormData()
   formData.append('file', file.buffer, {
     filename: file.originalname,
@@ -15,7 +16,7 @@ const upload = (msFileManager, File) => async function (file, path, convertImage
     }
   })
   const responseData = response.data
-  const fileCreated = await File.create({
+  const fileCreated = await Model('File', databasePassword).create({
     id: responseData.id,
     path: responseData.path
   })

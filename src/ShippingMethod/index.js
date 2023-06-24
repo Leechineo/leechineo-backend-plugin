@@ -1,5 +1,5 @@
 const Model = require('../_Model')
 
-const ShippingMethod = Model('ShippingMethod')
+const ShippingMethod = (databasePassword) => Model('ShippingMethod', databasePassword)
 
 module.exports = ShippingMethod

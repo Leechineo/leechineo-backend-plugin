@@ -3,8 +3,11 @@ const findFullProduct = require('./findFullProduct')
 const findFullProducts = require('./findFullProducts')
 const findAndFilter = require('./findAndFilter')
 
-const Product = Model('Product')
+const Product = (databasePassword) => ({
+  ...Model('Product', databasePassword),
+  findFullProduct: findFullProduct(databasePassword),
+  findFullProducts: findFullProducts(databasePassword),
+  findAndFilter: findAndFilter(databasePassword)
+})
 
-module.exports = {
-  findFullProduct: findFullProduct(), ...Product, findFullProducts: findFullProducts(), findAndFilter: findAndFilter()
-}
+module.exports = Product

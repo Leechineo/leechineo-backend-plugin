@@ -1,7 +1,7 @@
 const Model = require('../../_Model')
 const findProduct = require('../findFullProduct')
 
-const findProducts = () => async (idList, user) => {
+const findProducts = (databasePassword) => async (idList, user) => {
   if (idList) {
     const products = []
     for (const item of idList) {
@@ -10,7 +10,7 @@ const findProducts = () => async (idList, user) => {
     }
     return products
   }
-  const productsResult = await Model('Product').find()
+  const productsResult = await Model('Product', databasePassword).find()
   const products = []
   for (const item of productsResult) {
     const product = await findProduct()(item.id, user)
