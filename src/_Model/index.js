@@ -8,7 +8,7 @@ const Model = (modelName, databasePassword = 'database') => {
     });
   }
   const model = () => axios.create({
-    baseURL: `${process.env.DB_MANAGER_URL}/${modelName}` || `http://localhost:5000/${modelName}`,
+    baseURL: process.env.DB_MANAGER_URL ? `${process.env.DB_MANAGER_URL}/${modelName}` : `http://localhost:5000/${modelName}`,
     headers: {
       Authorization: `Bearer ${generateToken({ secretpass: databasePassword })}`
     }
