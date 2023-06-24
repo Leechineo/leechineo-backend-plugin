@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "repository": "git@github.com:Leechineo/leechineo-backend-plugin.git",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "scripts": {
     "lint": "eslint ."
   },
