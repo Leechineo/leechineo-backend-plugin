@@ -1,6 +1,5 @@
 const axios = require('axios')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
 
 const Model = (modelName, databasePassword = 'database') => {
   const generateToken = (params = {}) => {
@@ -9,7 +8,7 @@ const Model = (modelName, databasePassword = 'database') => {
     });
   }
   const model = () => axios.create({
-    baseURL: process.env.DB_MANAGER_URL || `http://localhost:5000/${modelName}`,
+    baseURL: `${process.env.DB_MANAGER_URL}/${modelName}` || `http://localhost:5000/${modelName}`,
     headers: {
       Authorization: `Bearer ${generateToken({ secretpass: databasePassword })}`
     }
