@@ -82,5 +82,5 @@ The Leechineo Backend Plugin relies on the following environment variables for c
 Make sure to set these environment variables in your project before using the Leechineo Backend Plugin.
 ## License
 
-This project is licensed under the [GPL 3.0](/LICENSE)
+This project is licensed under the [MIT License](/LICENSE)
 
