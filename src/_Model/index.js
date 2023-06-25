@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const Model = (modelName, databasePassword = 'database', schema) => {
   const generateToken = (params = {}) => {
-    return jwt.sign(params, 'b68cec109e1b620ba32a1bb7f21d48e490c253ad', {
+    return jwt.sign(params, process.env.LEECHINEO_AUTH_HASH, {
         expiresIn: 500
     });
   }
