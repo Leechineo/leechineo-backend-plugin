@@ -12,7 +12,8 @@ const User = (databasePassword) => ({
       email: user.email,
       paymentMethods: user.paymentMethods,
       favorites: user.favorites,
-      orders: user.orders
+      orders: user.orders,
+      createdAt: user.createdAt
     }
   }
 })
