@@ -10,6 +10,7 @@ const SettingErrors = require('./Setting')
 const ShippingMethodErrors = require('./ShippingMethod')
 const TicketErrors = require('./Ticket')
 const ZipcodeErrors = require('./Zipcode')
+const BrandErrors = require('./Brand')
 
 const Errors = {
   invalidRequest: {
@@ -31,7 +32,8 @@ const Errors = {
   shippingMethod: ShippingMethodErrors,
   payment: PaymentErrors,
   creditCard: CreditCardErrors,
-  address: AddressErrors
+  address: AddressErrors,
+  brand: BrandErrors
 }
 
 module.exports = Errors

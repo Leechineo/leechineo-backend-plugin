@@ -4,3 +4,5 @@ const BrandErrors = {
     message: 'Marca não encontrada.'
   }
 }
+
+module.exports = BrandErrors
