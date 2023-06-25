@@ -3,7 +3,7 @@ const CategoryErrors = {
     error: 'category_not_found',
     message: 'Categoria não encontrada.'
   },
-  already_exists: {
+  alreadyExists: {
     error: 'category_already_exists',
     message: 'A categoria já existe.'
   },
