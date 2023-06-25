@@ -23,6 +23,8 @@ class Leechineo {
     this.errors = Errors
     this.plugins = Plugins
   }
+  static plugins = Plugins
+  static errors = Errors
 }
 
 module.exports = Leechineo
