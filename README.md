@@ -8,7 +8,7 @@ The Leechineo Backend Plugin is a powerful Node.js package designed to streamlin
 The Leechineo Backend Plugin offers a comprehensive error handling system that simplifies the process of sending standardized HTTP error responses. This makes it easier to handle and communicate errors throughout your application. The plugin includes pre-defined error classes for various categories, such as account-related errors, address errors, authentication errors, cart errors, category errors, credit card errors, payment errors, product errors, setting errors, shipping method errors, ticket errors, and zipcode errors. Each error class provides detailed information and appropriate status codes for easy identification and troubleshooting.
 
 ### Database Communication
-The Leechineo Backend Plugin facilitates seamless communication with a database microservice. It provides a unified and consistent interface to perform CRUD (Create, Read, Update, Delete) operations on different models or collections within the database. The plugin supports the following methods for each model:
+The Leechineo Backend Plugin facilitates seamless communication with [ms-database-manager](https://github.com/Leechineo/ms-database-manager). It provides a unified and consistent interface to perform CRUD (Create, Read, Update, Delete) operations on different models or collections within the database. The plugin supports the following methods for each model:
 
 * `create(props)`: Creates a new record in the model with the provided properties.
 * `find(params)`: Retrieves records from the model based on specified filters and sorting criteria.
