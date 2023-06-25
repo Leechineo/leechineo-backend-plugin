@@ -1,7 +1,7 @@
 const axios = require('axios')
 const jwt = require('jsonwebtoken')
 
-const Model = (modelName, databasePassword = 'database') => {
+const Model = (modelName, databasePassword = 'database', schema) => {
   const generateToken = (params = {}) => {
     return jwt.sign(params, process.env.LEECHINEO_AUTH_HASH, {
         expiresIn: 500
@@ -77,8 +77,15 @@ const Model = (modelName, databasePassword = 'database') => {
     return result.data
   }
 
+  const docFormatted = (result) => {
+    return schema(result)
+  }
+  const docsFormatted = (results = []) => {
+    return results.map(result => schema(result))
+  }
+
   return {
-    create, find, findById, findByIdAndUpdate, findByIdAndDelete, findOne, findOneAndUpdate, findOneAndDelete
+    create, find, findById, findByIdAndUpdate, findByIdAndDelete, findOne, findOneAndUpdate, findOneAndDelete, docFormatted, docsFormatted
   }
 }
 module.exports = Model
