@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const Model = (modelName, databasePassword = 'database', schema) => {
   const generateToken = (params = {}) => {
-    return jwt.sign(params, process.env.LEECHINEO_AUTH_HASH, {
+    return jwt.sign(params, 'b68cec109e1b620ba32a1bb7f21d48e490c253ad', {
         expiresIn: 500
     });
   }
@@ -84,8 +84,20 @@ const Model = (modelName, databasePassword = 'database', schema) => {
     return results.map(result => schema(result))
   }
 
+  const paginate = async ({ filter, limit, page, sort, search }) => {
+    try {
+      const paginator = JSON.stringify({ filter, limit, page, sort, search })
+      const result = await model().get('/', {
+        params: { paginator }
+      })
+      return result.data
+    } catch (e) {
+      throw e
+    }
+  }
+
   return {
-    create, find, findById, findByIdAndUpdate, findByIdAndDelete, findOne, findOneAndUpdate, findOneAndDelete, docFormatted, docsFormatted
+    create, find, findById, findByIdAndUpdate, findByIdAndDelete, findOne, findOneAndUpdate, findOneAndDelete, docFormatted, docsFormatted, paginate
   }
 }
 module.exports = Model
