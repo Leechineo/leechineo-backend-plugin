@@ -8,8 +8,15 @@ const msFileManager = axios.create({
   baseURL: process.env.MS_FILE_MANAGER_URL || 'http://localhost:5001'
 })
 
+const formattedFileSchema = (file) => ({
+  id: file.id,
+  path: file.path,
+  type: file.type,
+  createdAt: file.createdAt
+})
+
 const File = (databasePassword) => ({
-  ...Model('File', databasePassword),
+  ...Model('File', databasePassword, formattedFileSchema),
   upload: upload(msFileManager, databasePassword),
   download,
   reqFile
