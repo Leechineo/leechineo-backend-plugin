@@ -8,7 +8,7 @@ const productFomarttedSchema = (product) => ({
   name: product.name,
   description: product.description,
   images: product.images,
-  specification: product.specification,
+  specifications: product.specifications,
   category: product.category,
   brand: product.brand,
   type: product.type,
