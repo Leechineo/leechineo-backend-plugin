@@ -3,6 +3,10 @@ const CategoryErrors = {
     error: 'category_not_found',
     message: 'Categoria não encontrada.'
   },
+  already_exists: {
+    error: 'category_already_exists',
+    message: 'A categoria já existe.'
+  },
   invalidData: {
     error: 'invalid_category_data',
     message: 'Os dados fornecidos são inválidos.'
